@@ -13,7 +13,7 @@ function Calculator(props) {
 
     const addDigit = (digit) => {
         let number = display + digit;
-        setDisplay(number);
+        setDisplay(parseInt(number));
     }
 
     const reset = () => {
