@@ -4,12 +4,14 @@ import { Text, View, StyleSheet } from 'react-native';
 import 
     { 
         Button, 
+        Display, 
     } from '../components';
 
 function Calculator(props) {
 
    return (
        <View style={[styles.container]}>
+            <Display value="0"/>
             <View style={[styles.buttons]}>
                 <Button lable="1"/>
                 <Button lable="2"/>
