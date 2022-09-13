@@ -11,7 +11,7 @@ function Calculator(props) {
 
     const [display, setDisplay] = useState(0)
 
-    const addDigit = () => {console.warn("Passei a função para o componente)}
+    const addDigit = (digit) => {console.warn(digit)}
 
 
    return (
@@ -19,14 +19,14 @@ function Calculator(props) {
             <Display value={display}/>
             <View style={[styles.buttons]}>
                 <Button lable="1" function={addDigit}/>
-                <Button lable="2"/>
-                <Button lable="3"/>
-                <Button lable="4"/>
-                <Button lable="5"/>
-                <Button lable="6"/>
-                <Button lable="7"/>
-                <Button lable="8"/>
-                <Button lable="9"/>
+                <Button lable="2" function={addDigit}/>
+                <Button lable="3" function={addDigit}/>
+                <Button lable="4" function={addDigit}/>
+                <Button lable="5" function={addDigit}/>
+                <Button lable="6" function={addDigit}/>
+                <Button lable="7" function={addDigit}/>
+                <Button lable="8" function={addDigit}/>
+                <Button lable="9" function={addDigit}/>
             </View>
        </View>
    )

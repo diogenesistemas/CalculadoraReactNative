@@ -3,8 +3,10 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
 function Button(props) {
 
+
+
    return (
-       <TouchableOpacity style={[styles.button]} onPress={props.function}>
+       <TouchableOpacity style={[styles.button]} onPress={() => props.function(props.lable)}>
            <Text style={[styles.lableButton]}>{props.lable}</Text>
        </TouchableOpacity>
    )
