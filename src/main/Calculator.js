@@ -11,7 +11,10 @@ function Calculator(props) {
 
     const [display, setDisplay] = useState(0)
 
-    const addDigit = (digit) => {setDisplay(digit)}
+    const addDigit = (digit) => {
+        let number = display + digit;
+        setDisplay(number);
+    }
 
 
    return (
