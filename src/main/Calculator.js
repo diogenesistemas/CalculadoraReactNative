@@ -16,11 +16,16 @@ function Calculator(props) {
         setDisplay(number);
     }
 
+    const reset = () => {
+        setDisplay(0);
+    }
+
 
    return (
        <View style={[styles.container]}>
             <Display value={display}/>
             <View style={[styles.buttons]}>
+                <Button lable="C" function={reset}/>
                 <Button lable="1" function={addDigit}/>
                 <Button lable="2" function={addDigit}/>
                 <Button lable="3" function={addDigit}/>
