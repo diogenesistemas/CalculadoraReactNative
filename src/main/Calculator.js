@@ -11,7 +11,7 @@ function Calculator(props) {
 
     const [display, setDisplay] = useState(0)
 
-    const addDigit = (digit) => {console.warn(digit)}
+    const addDigit = (digit) => {setDisplay(digit)}
 
 
    return (
