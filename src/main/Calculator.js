@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 import 
@@ -9,11 +9,16 @@ import
 
 function Calculator(props) {
 
+    const [display, setDisplay] = useState(0)
+
+    const addDigit = () => {console.warn("Passei a função para o componente)}
+
+
    return (
        <View style={[styles.container]}>
-            <Display value="0"/>
+            <Display value={display}/>
             <View style={[styles.buttons]}>
-                <Button lable="1"/>
+                <Button lable="1" function={addDigit}/>
                 <Button lable="2"/>
                 <Button lable="3"/>
                 <Button lable="4"/>
