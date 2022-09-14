@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, useWindowDimensions } from 'react-native';
 
 import 
     { 
@@ -13,7 +13,7 @@ function Calculator(props) {
 
     const addDigit = (digit) => {
         let number = display + digit;
-        setDisplay(parseInt(number));
+        setDisplay(number);
     }
 
     const reset = () => {
@@ -24,29 +24,30 @@ function Calculator(props) {
    return (
        <View style={[styles.container]}>
             <Display value={display}/>
+            <Display value={display}/>
             <View style={[styles.buttons]}>
-                <Button lable="=" function={addDigit}/>
+                <Button lable="=" four function={addDigit}/>
                 <Button lable="0" function={addDigit}/>
                 <Button lable="<=" function={addDigit}/>
-                <Button lable="AC" function={addDigit}/>
-                <Button lable="+" function={addDigit}/>
+                <Button lable="AC" function={reset}/>
+                <Button lable="+" operation function={addDigit}/>
                 <Button lable="1" function={addDigit}/>
                 <Button lable="2" function={addDigit}/>
                 <Button lable="3" function={addDigit}/>
 
-                <Button lable="-" function={addDigit}/>
+                <Button lable="-" operation function={addDigit}/>
 
                 <Button lable="4" function={addDigit}/>
                 <Button lable="5" function={addDigit}/>
                 <Button lable="6" function={addDigit}/>
 
-                <Button lable="X" function={addDigit}/>
+                <Button lable="X" operation function={addDigit}/>
 
                 <Button lable="7" function={addDigit}/>
                 <Button lable="8" function={addDigit}/>
                 <Button lable="9" function={addDigit}/>
 
-                <Button lable="/" function={reset}/>
+                <Button lable="/" operation function={addDigit}/>
 
             </View>
        </View>
@@ -55,7 +56,7 @@ function Calculator(props) {
 
 const styles = StyleSheet.create({
    container: {
-    //    backgroundColor: '#fff',
+       backgroundColor: '#000',
     //    display: 'flex',
     //    alignItems: 'center',
     //    justifyContent: 'center',
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
         
         // justifyContent: 'center',
         flexDirection: 'row',
-        flexWrap: 'wrap-reverse'
+        flexWrap: 'wrap-reverse',
    },
  
 });

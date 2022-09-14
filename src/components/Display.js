@@ -12,14 +12,15 @@ function Display(props) {
 
 const styles = StyleSheet.create({
    display: {
-       backgroundColor: '#ccc',
-       height: 100,
+    //    backgroundColor: '#ccc',
+       backgroundColor: '#333',
+       height: 131,
        display: 'flex',
       
      
    },
    displayValues: {
-        color: '#000',
+        color: '#fff',
         fontSize: 50,
         
    },
