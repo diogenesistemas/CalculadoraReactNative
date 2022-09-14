@@ -43,13 +43,15 @@ function Calculator(props) {
 const styles = StyleSheet.create({
    container: {
     //    backgroundColor: '#fff',
-       display: 'flex',
+    //    display: 'flex',
     //    alignItems: 'center',
     //    justifyContent: 'center',
    },
    buttons:{
         
         // justifyContent: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap-reverse'
    }
 });
 
