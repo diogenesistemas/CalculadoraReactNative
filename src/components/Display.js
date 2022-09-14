@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
    display: {
     //    backgroundColor: '#ccc',
        backgroundColor: '#333',
-       height: 131,
+       height: 132,
        display: 'flex',
       
      
