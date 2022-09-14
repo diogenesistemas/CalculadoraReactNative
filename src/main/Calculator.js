@@ -25,16 +25,29 @@ function Calculator(props) {
        <View style={[styles.container]}>
             <Display value={display}/>
             <View style={[styles.buttons]}>
-                <Button lable="C" function={reset}/>
+                <Button lable="=" function={addDigit}/>
+                <Button lable="0" function={addDigit}/>
+                <Button lable="<=" function={addDigit}/>
+                <Button lable="AC" function={addDigit}/>
+                <Button lable="+" function={addDigit}/>
                 <Button lable="1" function={addDigit}/>
                 <Button lable="2" function={addDigit}/>
                 <Button lable="3" function={addDigit}/>
+
+                <Button lable="-" function={addDigit}/>
+
                 <Button lable="4" function={addDigit}/>
                 <Button lable="5" function={addDigit}/>
                 <Button lable="6" function={addDigit}/>
+
+                <Button lable="X" function={addDigit}/>
+
                 <Button lable="7" function={addDigit}/>
                 <Button lable="8" function={addDigit}/>
                 <Button lable="9" function={addDigit}/>
+
+                <Button lable="/" function={reset}/>
+
             </View>
        </View>
    )
@@ -52,7 +65,8 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap-reverse'
-   }
+   },
+ 
 });
 
 export default Calculator;
