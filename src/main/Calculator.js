@@ -8,7 +8,6 @@ Display,
 
 function Calculator(props) {
 
-    // const [number, setNumber] = useState("")
     const [expression, setExpression] = useState("")
     const [display, setDisplay] = useState("")
     const [result, setResult] = useState(0)
@@ -22,8 +21,8 @@ function Calculator(props) {
 
     const addOperation = (operation) => {
 
-        let newExpression = expression
-        console.log(expression)
+        let newExpression = expression + ""
+
         if (lastDigitIsNotANumber(newExpression)){
             newExpression = newExpression.substring(0, newExpression.length-1)
         }
