@@ -8,15 +8,12 @@ Display,
 
 function Calculator(props) {
 
-    const [number, setNumber] = useState("")
-    const [expression, setExpression] = useState()
+    // const [number, setNumber] = useState("")
+    const [expression, setExpression] = useState("")
     const [display, setDisplay] = useState("")
     const [result, setResult] = useState(0)
 
     const addDigit = (digit) => {
-        // let n = number + digit;
-        // setNumber(n);
-        // console.warn(n)
         let newExpression = expression + digit
         setExpression(newExpression)
         setDisplay(newExpression);        
@@ -26,18 +23,13 @@ function Calculator(props) {
     const addOperation = (operation) => {
 
         let newExpression = expression
-        // let ns = palavra.replace(0, palavra.length-1,"")
-        console.warn(newExpression)
-
+        console.log(expression)
         if (lastDigitIsNotANumber(newExpression)){
             newExpression = newExpression.substr(0, newExpression.length-1)
         }
         newExpression += operation
         setExpression(newExpression)
-        // setNumber("")
         setDisplay(newExpression)
-
-
     }
     
     const calcOperation = (e) =>{
@@ -47,39 +39,36 @@ function Calculator(props) {
 
 
     const reset = () => {
-        // setNumber("")
         setExpression("")
-        // setOperation("")
         setDisplay("");
         setResult(0);
     }
 
-    const calcResult = (props)=>{
-        reset()
+    const calcResult = () =>{
         setExpression(result)
         setDisplay(result)  
+        setResult(0)
     }
 
     const lastDigitIsNotANumber = (value) => {
        return isNaN(value.substr(value.length-1));
     }
 
-    // const backSpace = () =>{
-    //     let newExpression = expression
-    //     newExpression = newExpression.substr(0, newExpression.length-1)
-    //     setExpression(newExpression)
-    //     setDisplay(newExpression)
-
-    // }
+    const backSpace = () =>{
+        let newExpression = expression
+        newExpression = newExpression.substring(0, newExpression.length-1)
+        setExpression(newExpression)
+        setDisplay(newExpression)
+    }
 
     return (
         <View style={[styles.container]}>
             <Display value={display} />
-            <Display value={result} />
+            <Display value={result == 0 ? "" : result} />
             <View style={[styles.buttons]}>
                 <Button lable="=" four function={calcResult}/>
                 <Button lable="0" function={addDigit} />
-                <Button lable="<=" function={addDigit} />
+                <Button lable="<=" function={backSpace} />
                 <Button lable="AC" function={reset} />
                 <Button lable="+" operation function={addOperation} />
                 <Button lable="1" function={addDigit} />
