@@ -11,6 +11,7 @@ function Calculator(props) {
     const [expression, setExpression] = useState("")
     const [display, setDisplay] = useState("")
     const [result, setResult] = useState(0)
+    const [firstOperation, setFirstOperation] = useState(true)
 
     const addDigit = (digit) => {
         let newExpression = expression + digit
@@ -24,6 +25,7 @@ function Calculator(props) {
         newExpression += operation
         setExpression(newExpression)
         setDisplay(newExpression)
+        setFirstOperation(false)
     }
     
     const calcOperation = (e) =>{
@@ -36,12 +38,13 @@ function Calculator(props) {
         setExpression("")
         setDisplay("");
         setResult(0);
+        setFirstOperation(true)
     }
 
     const calcResult = () =>{
         setExpression(result)
         setDisplay(result)  
-        setResult(0)
+        setFirstOperation(true)
     }
 
     const backSpace = () =>{
@@ -75,7 +78,7 @@ function Calculator(props) {
     return (
         <View style={[styles.container]}>
             <Display value={display} />
-            <Display value={result == 0 ? "" : result} />
+            <Display value={firstOperation ? "" : result} />
             <View style={[styles.buttons]}>
                 <Button lable="=" four function={calcResult}/>
                 <Button lable="0" function={addDigit} />
