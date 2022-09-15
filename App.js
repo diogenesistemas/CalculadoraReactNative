@@ -5,12 +5,14 @@ import {
 
 } from 'react-native';
 
+import Calculator from './src/main/Calculator';
+
 const App = () => {
 
 
   return (
     <SafeAreaView>
-      <Text>Calculadora</Text>
+      <Calculator/>
     </SafeAreaView>
   );
 };
