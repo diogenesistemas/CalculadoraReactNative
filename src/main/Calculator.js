@@ -20,12 +20,7 @@ function Calculator(props) {
     }
 
     const addOperation = (operation) => {
-
-        let newExpression = expression + ""
-
-        if (lastDigitIsNotANumber(newExpression)){
-            newExpression = newExpression.substring(0, newExpression.length-1)
-        }
+        let newExpression = prepareExpressionToOperation(expression + "")
         newExpression += operation
         setExpression(newExpression)
         setDisplay(newExpression)
@@ -49,16 +44,33 @@ function Calculator(props) {
         setResult(0)
     }
 
+    const backSpace = () =>{
+        let newExpression = expression + ""
+        newExpression = removeLastDigit(newExpression);
+        newExpression = prepareExpressionToOperation(newExpression)        
+        calcOperation(newExpression)
+        setExpression(newExpression)
+        setDisplay(newExpression)
+        setResult(0)
+    }
+
+    const removeLastDigit = (value) =>{
+        return value.substring(0, value.length-1)
+    }
+
     const lastDigitIsNotANumber = (value) => {
        return isNaN(value.substr(value.length-1));
     }
 
-    const backSpace = () =>{
-        let newExpression = expression
-        newExpression = newExpression.substring(0, newExpression.length-1)
-        setExpression(newExpression)
-        setDisplay(newExpression)
+    const prepareExpressionToOperation = (value) =>{
+        let newExpression = value
+        if (lastDigitIsNotANumber(newExpression)){
+            newExpression =  removeLastDigit(newExpression)
+        }
+        return newExpression
     }
+
+ 
 
     return (
         <View style={[styles.container]}>
