@@ -16,20 +16,21 @@ function Calculator(props) {
     const addDigit = (digit) => {
         let newExpression = expression + digit
         setExpression(newExpression)
-        setDisplay(newExpression);        
-        calcOperation(newExpression)
+        setDisplay(newExpression);   
+        calcOperation(newExpression)     
     }
 
     const addOperation = (operation) => {
+        setFirstOperation(false)
         let newExpression = prepareExpressionToOperation(expression + "")
         newExpression += operation
         setExpression(newExpression)
         setDisplay(newExpression)
-        setFirstOperation(false)
+        
     }
     
     const calcOperation = (e) =>{
-        let calc = expression != "" ? eval(e) : 0;
+        let calc = expression != "" ? eval(e) : "";
         setResult(calc)
     }
 
@@ -54,7 +55,7 @@ function Calculator(props) {
         setDisplay(newExpression)
         newExpression = prepareExpressionToOperation(newExpression)        
         calcOperation(newExpression)
-        setResult(0)
+        // setResult(0)
     }
 
     const removeLastDigit = (value) =>{
@@ -78,7 +79,7 @@ function Calculator(props) {
     return (
         <View style={[styles.container]}>
             <Display value={display} />
-            <Display value={firstOperation ? "" : result} />
+            <Display value={firstOperation? "" : result} />
             <View style={[styles.buttons]}>
                 <Button lable="=" four function={calcResult}/>
                 <Button lable="0" function={addDigit} />
