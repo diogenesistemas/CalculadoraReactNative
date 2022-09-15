@@ -25,7 +25,7 @@ function Calculator(props) {
         let newExpression = expression
         console.log(expression)
         if (lastDigitIsNotANumber(newExpression)){
-            newExpression = newExpression.substr(0, newExpression.length-1)
+            newExpression = newExpression.substring(0, newExpression.length-1)
         }
         newExpression += operation
         setExpression(newExpression)
