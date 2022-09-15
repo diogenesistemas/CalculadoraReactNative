@@ -15,13 +15,12 @@ const styles = StyleSheet.create({
     //    backgroundColor: '#ccc',
        backgroundColor: '#333',
        height: 132,
-       display: 'flex',
-      
-     
+       display: 'flex',   
    },
    displayValues: {
         color: '#fff',
         fontSize: 50,
+        textAlign: 'right',
         
    },
 });
