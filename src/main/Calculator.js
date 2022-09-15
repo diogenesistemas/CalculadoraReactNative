@@ -47,10 +47,10 @@ function Calculator(props) {
     const backSpace = () =>{
         let newExpression = expression + ""
         newExpression = removeLastDigit(newExpression);
-        newExpression = prepareExpressionToOperation(newExpression)        
-        calcOperation(newExpression)
         setExpression(newExpression)
         setDisplay(newExpression)
+        newExpression = prepareExpressionToOperation(newExpression)        
+        calcOperation(newExpression)
         setResult(0)
     }
 
