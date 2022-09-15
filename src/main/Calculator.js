@@ -14,9 +14,10 @@ function Calculator(props) {
     const [result, setResult] = useState(0)
 
     const addDigit = (digit) => {
-        let n = number + digit;
-        setNumber(n);
-        let newExpression = expression + n
+        // let n = number + digit;
+        // setNumber(n);
+        // console.warn(n)
+        let newExpression = expression + digit
         setExpression(newExpression)
         setDisplay(newExpression);        
         calcOperation(newExpression)
@@ -33,7 +34,7 @@ function Calculator(props) {
         }
         newExpression += operation
         setExpression(newExpression)
-        setNumber("")
+        // setNumber("")
         setDisplay(newExpression)
 
 
@@ -46,7 +47,7 @@ function Calculator(props) {
 
 
     const reset = () => {
-        setNumber("")
+        // setNumber("")
         setExpression("")
         // setOperation("")
         setDisplay("");
@@ -63,6 +64,13 @@ function Calculator(props) {
        return isNaN(value.substr(value.length-1));
     }
 
+    // const backSpace = () =>{
+    //     let newExpression = expression
+    //     newExpression = newExpression.substr(0, newExpression.length-1)
+    //     setExpression(newExpression)
+    //     setDisplay(newExpression)
+
+    // }
 
     return (
         <View style={[styles.container]}>
